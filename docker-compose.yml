@@ -1,0 +1,22 @@
+version: "3"
+services:
+  humhub:
+    image: mriedmann/humhub
+    ports:
+      - 8080:80
+    volumes:
+      - config:/var/www/localhost/htdocs/protected/config
+      - uploads:/var/www/localhost/htdocs/uploads
+      - modules:/var/www/localhost/htdocs/modules
+  db:
+    image: mariadb:10.2
+    environment:
+      MYSQL_ROOT_PASSWORD: ${MYSQL_ROOT_PASSWORD}
+      MYSQL_DATABASE: ${MYSQL_DATABASE}
+      MYSQL_USER: ${MYSQL_USER}
+      MYSQL_PASSWORD: ${MYSQL_PASSWORD}
+
+volumes:
+  config:
+  uploads:
+  modules:
