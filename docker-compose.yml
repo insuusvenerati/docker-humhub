@@ -41,6 +41,8 @@ services:
       - "--providers.docker.exposedbydefault=false"
       - "--entrypoints.web.address=:80"
       - "--entrypoints.websecure.address=:443"
+      - "--entrypoints.web.http.redirections.entryPoint.to=websecure"
+      - "--entrypoints.web.http.redirections.entryPoint.scheme=https"
       # - "--providers.docker.endpoint=tcp://127.0.0.1:2376" # Production configuration https://docs.docker.com/engine/security/https/#create-a-ca-server-and-client-keys-with-openssl
       # - "--providers.docker.tls.ca=/ca.pem"
       # - "--providers.docker.tls.cert=/cert.pem"
